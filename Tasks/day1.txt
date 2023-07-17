@@ -1,0 +1,42 @@
+How would you copy all files and directories from one directory to another, including subdirectories and their contents?
+
+_____
+
+cp -a  file source distination 
+_____
+
+
+2 - What command would you use to search for the word "hello" case-insensitively in a file named "text.txt"?
+_____
+
+grep -i "hello" text.txt 
+_____
+
+3 - How would you delete a file named "notes.txt"?
+
+_____
+
+rm notes.txt
+_____
+
+ 
+4 - What command would you use to move up one directory level?
+
+___
+
+mv
+___
+5 - How would you search for the word "error" within a file named "system.log"?
+
+___
+
+grep "error" system.log
+___
+
+6 - How would you navigate to your home directory?
+
+___
+
+cd ~ 
+
+____
