@@ -1,8 +1,7 @@
-## ```MYSQL CREATE TABLE Faculty
-     (
+## CREATE TABLE Faculty(
    * F_id BIGINT PRIMARY KEY NOT NULL,
    * F_name VARCHAR NOT NULL  );
-```
+
 ## CREATE TABLE Department(
    * D_id BIGINT PRIMARY KEY NOT NULL,
    * D_name VARCHAR NOT NULL,
