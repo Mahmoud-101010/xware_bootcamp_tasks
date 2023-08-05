@@ -2,8 +2,8 @@ Q1 - Use the cat command to display the contents of a file named "data.txt" and 
 _________________________
 
 
-  cat data.txt |grep "hello"
-  cat data.txt |grep -r "hello"
+cat data.txt |grep "hello"
+cat data.txt |grep -r "hello"
   
 _____________________________
 

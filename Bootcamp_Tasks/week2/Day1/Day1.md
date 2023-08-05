@@ -1,4 +1,5 @@
-## CREATE TABLE Faculty(
+## ```MYSQL CREATE TABLE Faculty
+     (
    * F_id BIGINT PRIMARY KEY NOT NULL,
    * F_name VARCHAR NOT NULL  );
 
