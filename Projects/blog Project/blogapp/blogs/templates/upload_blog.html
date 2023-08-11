@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #111;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            padding: 18px;
+            border-radius: 8px;
+            width: 450px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        textarea,
+        input[type="file"],
+        input[type="datetime-local"],
+        select {
+            width: 95%;
+            padding: 10px;
+            border: 0.5px solid #290101;
+            border-radius: 4px;
+            background-color: #292424;
+            color: #fff;
+        }
+        button[type="submit"] {
+            background-color: #580b0b;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        button[type="submit"]:hover {
+            background-color: #878c91;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Upload a New Blog Post</h2>
+        <form action="{%url 'upload_blog' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <br>
+            <br>
+            <div>
+                <label for="blog">Blog Content:</label>
+                <textarea id="blog" name="blog" rows="4"></textarea>
+            </div>
+            <br>
+            <br>
+            <div>
+                <label for="image">Image:</label>
+                <input type="file" id="post_img" name="post_img" accept="image/*">
+            </div>
+            <br>
+            <br>
+            <input type="hidden" id="timestamp" name="timestamp" value="{{ blog.timestamp }}">
+            <button type="submit">Upload Blog</button>
+        </form>
+    </div>
+</body>
+</html>

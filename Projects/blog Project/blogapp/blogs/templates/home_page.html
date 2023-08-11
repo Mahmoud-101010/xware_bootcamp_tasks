@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    <style>
+        :root {
+            --main-bg-color: #000;
+            --main-text-color: #fff;
+            --accent-color: #2870be;
+            --secondary-accent-color: #d3a51d;
+            --secondary-bg-color: #111;
+            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--main-bg-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--main-text-color);
+        }
+
+        .main-container {
+            background-color: var(--main-bg-color);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1, .blog-title {
+            margin-bottom: 20px;
+            color: var(--main-text-color);
+        }
+
+        p, .blog-content, .extra-info {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .extra-info a, .blog-meta {
+            color: #777;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s, color 0.3s;
+            width: 100%;
+        }
+
+        .btn-login {
+            background-color: var(--accent-color);
+            color: var(--main-text-color);
+        }
+
+        .btn-signup {
+            background-color: var(--secondary-accent-color);
+            color: #333;
+        }
+
+        .btn:hover {
+            filter: brightness(1.1);
+        }
+
+        .blog-container {
+            margin-top: 30px;
+            background-color: var(--secondary-bg-color);
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+            text-align: left;
+        }
+
+        .blog-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <h1>Welcome to Our Website</h1>
+        <p>Explore and discover amazing content and features!</p>
+        <div class="btn-container">
+            <form action="{%url 'login' %}">
+                <button class="btn btn-login">Log in</button>
+            </form>
+            <form action="{%url 'signup' %}">
+                <button class="btn btn-signup">Sign Up</button>
+            </form>
+        </div>
+        <div class="extra-info">
+            <p>Already have an account? <a href="{% url 'login'%}">Log in here</a></p>
+            <p>New here? <a href="{%url 'signup' %}">Sign up now</a></p>
+        </div>
+    </div>
+    
+    <!-- Loop through allBlogs to display each blog -->
+    {% for blog in allBlogs %}
+    <div class="main-container blog-container">
+        <h2 class="blog-title">{{ blog.title }}</h2>
+        <img class="blog-image" src="http://127.0.0.1:8000/media/{{ blog.post_img }}" alt="Blog Image">
+        <p class="blog-content">{{ blog.blog }}</p>
+        <p class="blog-meta">Published on {{ blog.timestamp }} by {{ blog.user.username }}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>

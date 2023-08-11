@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hi Mon</title>
+    <style>
+        /* Basic styling for demonstration purposes */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #111;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 100px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .message {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #ffffff;
+        }
+        form {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        button {
+            background-color: #2870be;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="message">Logout</h2>
+        <p class="message">You have been successfully logged out.</p>
+        <form action="{% url 'login'%}">
+            <button type="submit">Login Again</button>
+        </form>
+        <form action="{% url 'homepage'%}">
+            <button type="submit">Back to Home Page</button>
+        </form>
+    </div>
+</body>
+</html>

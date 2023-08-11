@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Blog Post</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Basic styling for demonstration purposes */
+        .container {
+            width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+        .blog-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .blog-image {
+            max-width: 100%;
+            color: #000;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .blog-content {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .btn-group {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn-update,
+        .btn-delete {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn-update {
+            background-color: #2870be;
+            color: #fff;
+        }
+        .btn-delete {
+            background-color: #891e28;
+            color: #fff;
+        }
+        .btn-update:hover,
+        .btn-delete:hover {
+            background-color: #1f558e;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #111;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 8px;
+            width: 400px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        textarea,
+        input[type="file"],
+        input[type="datetime-local"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #000;
+            border-radius: 4px;
+            background-color: #262323;
+            color: #afafaf;
+        }
+        button[type="submit"] {
+            background-color: #0056b3;
+            color: #000000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="container">
+        <form action="{% url 'update' userblogs.id%}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required value="{{ userblogs.title }}">
+            </div>
+            <div>
+                <label for="blog">Blog Content:</label>
+                <textarea  id="blog" name="blog" rows="4" required va>{{ userblogs.blog }}</textarea>
+            </div>
+            <div>
+                <label for="image" >Image:<img class="blog-image" src="http://127.0.0.1:8000/media/{{ userblogs.post_img}}" alt="Blog Image"> </label>
+                <input type="file" id="post_img" name="post_img" accept="image/*">
+            </div>
+            <input type="hidden" id="timestamp" name="timestamp" value="{{ blog.timestamp }}">
+            <div class="btn-group">
+                <button class="btn btn-update">Update</button>
+            </div>
+        </form>
+    <br>
+        <form action="{% url 'delete' userblogs.id %}">
+            
+            <button class="btn btn-delete">Delete</button>
+        </form>
+    </div>
+</body>
+</html>
