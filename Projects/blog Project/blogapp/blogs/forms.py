@@ -7,12 +7,11 @@ class LoginForm(forms.Form):
     username = forms.CharField(required=True, min_length=4)
     password = forms.CharField(required=True, min_length=4)
 
-
 class SignupForm(forms.Form):
     username = forms.CharField(required=True, min_length=4)
     first_name = forms.CharField(required=True, min_length=4)
-    last_name = forms.CharField(required=True, min_length=6)
-    email = forms.EmailField(required=True, min_length=12)
+    last_name = forms.CharField(required=True, min_length=4)
+    email = forms.EmailField(required=True, min_length=4)
     phone_number=forms.CharField(required=True, min_length=11)
     password = forms.CharField(required=True, min_length=4)
 

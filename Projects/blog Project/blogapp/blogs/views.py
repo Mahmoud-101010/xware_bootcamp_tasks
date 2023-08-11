@@ -22,7 +22,7 @@ def login_page(request):
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
             user = authenticate(request, username=username, password=password)
-            user = User.objects.filter(username=username).first()
+            user = User.objects.filter(username=username , password=password).first()
             if user:
                 login(request, user)
                 return redirect(reverse('show_blog'))
